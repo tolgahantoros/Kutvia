@@ -1,0 +1,2 @@
+/* global-fix: why-cards is inside whyus section */
+.whyus-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
