@@ -23,6 +23,14 @@ navLinks.querySelectorAll('a').forEach(a => {
   });
 });
 
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
 /* ─── Scroll reveal ─── */
 const aosEls = document.querySelectorAll('[data-aos]');
 const observer = new IntersectionObserver(entries => {
