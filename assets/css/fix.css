@@ -4,6 +4,41 @@
 /* utility */
 .d-none-sm { display: inline; }
 
+html,
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+body.menu-open {
+	overflow: hidden;
+}
+
+section,
+.container,
+.hero-content,
+.about-text,
+.whyus-text,
+.contact-info,
+.footer-brand,
+.footer-col {
+	min-width: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+span {
+	overflow-wrap: anywhere;
+	word-break: normal;
+}
+
 /* better fluid behavior */
 .brand-card,
 .service-item,
@@ -49,10 +84,51 @@
 	}
 
 	.nav-links {
+		position: fixed !important;
+		display: flex;
+		flex-direction: column;
 		z-index: 1100;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100dvh;
+		width: 100%;
+		max-width: none;
 		padding: 88px 24px 40px;
 		justify-content: flex-start;
+		align-items: stretch;
+		background: rgba(6, 9, 18, 0.985);
 		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateY(-8px);
+		transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+	}
+
+	.nav-links.open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	.nav-links li {
+		width: 100%;
+		max-width: 360px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.nav-links a {
+		display: block;
+		padding: 12px 14px;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		color: var(--text-primary);
 	}
 
 	.hamburger {
@@ -110,8 +186,14 @@
 	.about-card-float {
 		position: static;
 		display: inline-flex;
+		white-space: normal;
+		max-width: 100%;
 		margin: 8px 8px 0 0;
 		animation: none;
+	}
+
+	.about-values {
+		grid-template-columns: 1fr;
 	}
 
 	.brands-grid,
@@ -119,6 +201,20 @@
 	.whyus-cards,
 	.footer-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.section-header {
+		margin-bottom: 36px;
+	}
+
+	.section-subtitle,
+	.section-desc {
+		font-size: 0.98rem;
+	}
+
+	.brand-features li,
+	.footer-col li a {
+		font-size: 0.92rem;
 	}
 
 	.brand-card,
@@ -184,5 +280,45 @@
 	.form-group textarea {
 		padding: 11px 13px;
 		font-size: 16px;
+	}
+
+	.hero-badge,
+	.section-tag,
+	.brand-badge,
+	.pill {
+		font-size: 0.72rem;
+	}
+
+	.nav-logo {
+		font-size: 1.35rem;
+	}
+
+	.logo-k {
+		font-size: 1.55rem;
+	}
+}
+
+@media (max-width: 360px) {
+	.container,
+	.nav-container {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.hero-title {
+		font-size: 1.82rem;
+	}
+
+	.brand-card,
+	.service-item,
+	.contact-form,
+	.why-card {
+		padding: 18px;
+	}
+
+	.btn,
+	.btn-lg {
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 }
