@@ -10,7 +10,11 @@ window.addEventListener('scroll', () => {
 /* ─── Mobile menu ─── */
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
+let menuScrollY = 0;
+
 function lockBodyScroll() {
+  menuScrollY = window.scrollY || window.pageYOffset || 0;
+  if (menuScrollY > 0) window.scrollTo(0, 0);
   document.body.classList.add('menu-open');
   document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
@@ -22,6 +26,9 @@ function unlockBodyScroll() {
   document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
   document.body.style.touchAction = '';
+  if (menuScrollY > 0) {
+    window.scrollTo(0, menuScrollY);
+  }
 }
 
 function closeMobileMenu() {
